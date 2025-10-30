@@ -498,42 +498,6 @@ nav .btn:hover {
   50% { transform: translateY(-40px) rotate(45deg); opacity: 0.8; }
 }
 
-/* ---------------------- PEÇAS DE QUEBRA-CABEÇA ---------------------- */
-.hero-decor .puzzle {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  opacity: 0.4;
-  animation: floatPuzzle 12s infinite ease-in-out;
-  z-index: 1;
-  clip-path: path("M15,0 h60 a15,15 0 0 1 15,15 v60 a15,15 0 0 1 -15,15 h-60 a15,15 0 0 1 -15,-15 v-60 a15,15 0 0 1 15,-15 z M45,0 a7,7 0 1 1 0,14 a7,7 0 1 1 0,-14 M90,45 a7,7 0 1 1 -14,0 a7,7 0 1 1 14,0 M45,90 a7,7 0 1 1 0,-14 a7,7 0 1 1 0,14 M0,45 a7,7 0 1 1 14,0 a7,7 0 1 1 -14,0");
-}
-
-/* Posições diferentes */
-.puzzle:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-.puzzle:nth-child(2) { top: 25%; left: 70%; animation-delay: 2s; transform: rotate(15deg); }
-.puzzle:nth-child(3) { top: 60%; left: 30%; animation-delay: 4s; transform: rotate(-10deg); }
-.puzzle:nth-child(4) { top: 75%; left: 80%; animation-delay: 6s; transform: rotate(25deg); }
-.puzzle:nth-child(5) { top: 40%; left: 50%; animation-delay: 8s; transform: rotate(-20deg); }
-.puzzle:nth-child(6) { top: 15%; left: 85%; animation-delay: 3s; transform: rotate(30deg); }
-.puzzle:nth-child(7) { top: 65%; left: 15%; animation-delay: 5s; transform: rotate(-5deg); }
-.puzzle:nth-child(8) { top: 80%; left: 60%; animation-delay: 7s; transform: rotate(18deg); }
-.puzzle:nth-child(9) { top: 50%; left: 5%; animation-delay: 9s; transform: rotate(8deg); }
-.puzzle:nth-child(10) { top: 35%; left: 90%; animation-delay: 10s; transform: rotate(-12deg); }
-
-/* Animação flutuante */
-@keyframes floatPuzzle {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translateY(-25px) rotate(10deg);
-    opacity: 0.8;
-  }
-}
-
-
 
 
 /* ---------- PÁGINA DE LOGIN ---------- */
@@ -863,4 +827,46 @@ nav .btn:hover {
   .timeline-item, .timeline::before { left: 0 !important; width: 100%;}
   .timeline::before { left: 20px; }
   .timeline-item { margin-left: 0; }
+}
+
+
+
+/* ---------------------- FUNDO DECORATIVO GLOBAL ---------------------- */
+.background-decor {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-decor span {
+  position: absolute;
+  opacity: 0.15;
+  animation: float 12s infinite alternate ease-in-out;
+  filter: blur(1px);
+}
+
+.circle { border-radius: 50%; }
+.c1 { width: 180px; height: 180px; top: 10%; left: 5%; background: var(--cor-accent); }
+.c2 { width: 240px; height: 240px; bottom: 8%; right: 10%; background: var(--cor-destaque); }
+.c3 { width: 120px; height: 120px; top: 50%; left: 60%; background: var(--cor-primaria); }
+
+.square { border-radius: 12px; }
+.s1 { width: 100px; height: 100px; top: 20%; right: 25%; transform: rotate(25deg); background: var(--cor-secundaria); }
+.s2 { width: 80px; height: 80px; bottom: 20%; left: 10%; transform: rotate(15deg); background: var(--cor-primaria); }
+.s3 { width: 120px; height: 120px; top: 60%; left: 50%; transform: rotate(35deg); background: var(--cor-destaque); }
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid var(--cor-accent);
+}
+.t1 { top: 30%; left: 70%; transform: rotate(10deg); }
+.t2 { bottom: 25%; right: 20%; transform: rotate(-20deg); }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+  100% { transform: translateY(-20px) rotate(20deg); opacity: 0.25; }
 }
